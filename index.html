@@ -81,17 +81,20 @@
       position: relative;
       z-index: 2;
       text-align: center;
-      padding: 0 20px;
+      padding: 0 15px;
       margin-top: env(safe-area-inset-top);
+      white-space: nowrap;
+      width: 100%;
+      max-width: 100%;
     }
 
     .intro-page h1 {
       will-change: transform, background-position;
       transform: translateZ(0);
       backface-visibility: hidden;
-      font-size: clamp(2.8rem, 12vw, 5.5rem);
-      margin-bottom: 25px;
-      letter-spacing: 8px;
+      font-size: clamp(2rem, 9vw, 4.5rem);
+      margin-bottom: 20px;
+      letter-spacing: 3px;
       background: linear-gradient(90deg, #ff99cc, #ffccff, #b388ff, #c792ea, #ff99cc);
       background-size: 300% 100%;
       background-clip: text;
@@ -103,6 +106,9 @@
               1px 1px 2px #000;
       -webkit-text-stroke: 1px rgba(0, 0, 0, 0.3);
       animation: titleAnim 6s ease-in-out infinite alternate;
+      white-space: nowrap;
+      width: 100%;
+      overflow: visible;
     }
 
     @keyframes titleAnim {
@@ -111,14 +117,15 @@
     }
 
     .intro-page p {
-      font-size: clamp(1.3rem, 5vw, 2rem);
-      margin-bottom: 60px;
+      font-size: clamp(1rem, 4vw, 1.6rem);
+      margin-bottom: 40px;
       color: #ffffff;
       text-shadow:
               0 0 10px #fff,
               0 0 20px rgba(140, 82, 255, 0.8),
               1px 1px 3px #000;
       animation: textTwinkle 3s ease-in-out infinite;
+      white-space: nowrap;
     }
 
     @keyframes textTwinkle {
@@ -127,11 +134,11 @@
     }
 
     .enter-btn {
-      padding: 20px 70px;
+      padding: 15px 45px;
       background: linear-gradient(90deg, #ff66c4, #8c52ff);
       border-radius: 60px;
       color: #fff;
-      font-size: clamp(1.2rem, 4vw, 1.6rem);
+      font-size: clamp(1rem, 3.5vw, 1.4rem);
       font-weight: bold;
       box-shadow: 0 0 25px rgba(255, 102, 196, 0.9), inset 0 2px 4px rgba(255, 255, 255, 0.4);
       cursor: pointer;
@@ -139,6 +146,7 @@
       position: relative;
       overflow: hidden;
       animation: btnBreath 3s ease-in-out infinite;
+      white-space: nowrap;
     }
 
     @keyframes btnBreath {
@@ -332,9 +340,9 @@
       bottom: calc(20px + env(safe-area-inset-bottom));
       left: 50%;
       transform: translateX(-50%);
-      font-size: clamp(1rem, 3vw, 1.4rem);
-      font-weight: 70;
-      letter-spacing: 2px;
+      font-size: clamp(0.9rem, 2.8vw, 1.2rem);
+      font-weight: bold;
+      letter-spacing: 1px;
       background: linear-gradient(135deg, #ff99cc 0%, #b388ff 50%, #ffccff 100%);
       background-size: 400% 400%;
       background-clip: text;
@@ -343,16 +351,16 @@
       text-shadow:
               1px 1px 2px #000,
               0 0 8px rgba(255, 255, 255, 0.9),
-              0 0 15px rgba(255, 102, 196, 0.7),
-              0 0 25px rgba(140, 82, 255, 0.5);
+              0 0 15px rgba(255, 102, 196, 0.7);
       backdrop-filter: blur(10px);
-      padding: 12px 30px;
+      padding: 10px 20px;
       border-radius: 30px;
       z-index: 100;
       animation:
               footerFloat 5s ease-in-out infinite alternate,
               footerGradient 8s ease infinite;
       transition: opacity 0.5s ease, transform 0.5s ease;
+      white-space: nowrap;
     }
 
     @keyframes footerGradient {
@@ -378,9 +386,9 @@
       left: 50% !important;
       transform: translate(-50%, 0) !important;
       text-align: center !important;
-      font-size: clamp(1.5rem, 5vw, 2.5rem);
+      font-size: clamp(1.2rem, 4.5vw, 2.2rem);
       font-weight: 800;
-      letter-spacing: 3px;
+      letter-spacing: 2px;
       background: linear-gradient(120deg, #ff99cc, #ffccff, #b388ff, #c792ea, #ff99cc);
       background-size: 400% 400%;
       background-clip: text;
@@ -389,7 +397,8 @@
       text-shadow: 2px 2px 4px #000, 0 0 10px #fff, 0 0 20px rgba(255,102,196,0.8), 0 0 35px rgba(140,82,255,0.6);
       z-index: 1000000 !important;
       opacity: 0;
-      max-width: 80%;
+      max-width: 90%;
+      white-space: nowrap;
       cursor: pointer;
     }
 
@@ -411,13 +420,13 @@
 
     @media (max-width: 768px) {
       .photo-viewer-img { max-width: 95vw !important; max-height: 75vh !important; }
-      .random-wish { font-size: clamp(1.2rem, 4vw, 2rem); bottom: calc(70px + env(safe-area-inset-bottom)) !important; }
+      .random-wish { font-size: clamp(1.1rem, 4vw, 1.8rem) !important; }
       .photo-card { min-width: 80px; min-height: 100px; }
     }
 
     @media (max-width: 480px) {
       .photo-card:hover { transform: scale(1.15) !important; }
-      .random-wish { font-size: clamp(1rem, 4vw, 1.8rem); bottom: calc(60px + env(safe-area-inset-bottom)) !important; }
+      .random-wish { font-size: clamp(1rem, 3.8vw, 1.6rem) !important; }
       .photo-card { min-width: 70px; min-height: 90px; }
     }
   </style>
