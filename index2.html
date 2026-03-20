@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>访问受限</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a1a1d, #2c2c34);
+            color: #e0e0e0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 420px;
+            padding: 40px 30px;
+            background: rgba(30, 30, 36, 0.85);
+            border-radius: 18px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .title {
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 35px;
+            color: #f5f5f7;
+        }
+
+        .input-box {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px 18px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            outline: none;
+            font-size: 16px;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #5c67ff;
+            box-shadow: 0 0 0 3px rgba(92, 103, 255, 0.15);
+        }
+
+        .tip {
+            font-size: 13px;
+            color: #999;
+            margin-top: 8px;
+        }
+
+        .error {
+            color: #ff5c5c;
+            font-size: 13px;
+            margin-top: 10px;
+            height: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #5c67ff;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #4a54e0;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">您已无权进入🐏的世界</div>
+        <div class="input-box">
+            <input type="password" id="password" placeholder="请输入密码">
+            <div class="tip">请输入密码或联系🐏</div>
+        </div>
+        <div class="error" id="error"></div>
+        <button onclick="checkPassword()">验证密码</button>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const pwd = document.getElementById('password').value;
+            const error = document.getElementById('error');
+            
+            if (pwd === 'Abc123!@#') {
+                error.textContent = '';
+                // 密码正确，跳转到成功页面
+                window.location.href = 'success.html';
+            } else {
+                error.textContent = '密码错误，请重试';
+            }
+        }
+
+        // 回车提交
+        document.getElementById('password').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') checkPassword();
+        });
+    </script>
+</body>
+</html>
