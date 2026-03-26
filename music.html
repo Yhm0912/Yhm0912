@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>张三的歌</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /*  星空背景 */
+        body {
+            min-height: 100vh;
+            background: #1a1a2e;
+            background-image:
+                    radial-gradient(circle at 12% 32%, rgba(100, 120, 180, 0.3) 0%, transparent 10%),
+                    radial-gradient(circle at 84% 77%, rgba(80, 100, 160, 0.3) 0%, transparent 10%),
+                    radial-gradient(circle at 43% 45%, rgba(120, 140, 200, 0.25) 0%, transparent 15%),
+                    radial-gradient(circle at 72% 14%, rgba(90, 110, 170, 0.25) 0%, transparent 12%);
+            background-attachment: fixed;
+            position: relative;
+            overflow-x: hidden;
+
+            /* 全局圆润字体 */
+            font-family: "YouYuan", "Microsoft YaHei", "PingFang SC", sans-serif;
+            color: #fff;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        /* 随机自然星空 */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                    radial-gradient(circle, rgba(255,255,255,.1) 1px, transparent 1px),
+                    radial-gradient(circle, rgba(255,255,255,.07) 1px, transparent 1px),
+                    radial-gradient(circle, rgba(255,255,255,.12) 1px, transparent 1px),
+                    radial-gradient(circle, rgba(255,255,255,.05) 1px, transparent 1px);
+            background-size: 180px 220px, 240px 190px, 150px 250px, 210px 160px;
+            background-position: random;
+            animation: twinkle 15s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.3; }
+            50% { opacity: 0.9; }
+            100% { opacity: 0.3; }
+        }
+
+        /* 柔和浮动光点 */
+        .float-light {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image:
+                    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.05) 0%, transparent 40%),
+                    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.05) 0%, transparent 40%);
+            animation: float 22s linear infinite;
+            z-index: 1;
+        }
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(2%, -2%); }
+            100% { transform: translate(0, 0); }
+        }
+
+        /* 标题淡入动画 */
+        h1 {
+            font-size: 48px;
+            font-weight: 400;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+            animation: titleIn 1.2s ease-out;
+            position: relative;
+            z-index: 2;
+        }
+        .singer {
+            font-size: 17px;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 70px;
+            animation: titleIn 1.4s ease-out;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* 歌词 */
+        .lyric {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        .line {
+            font-size: 24px;
+            line-height: 2.2;
+            margin-bottom: 12px;
+            opacity: 0.4;
+            transition: all 0.5s cubic-bezier(0.34, 0.69, 0.5, 1);
+        }
+        .line.on {
+            opacity: 1;
+            transform: translateY(-3px);
+        }
+        /* 副歌暖金色 */
+        .line.hl {
+            color: #f5e7b8;
+            font-weight: 500;
+        }
+        .line:hover {
+            opacity: 1;
+            transform: scale(1.02);
+        }
+        .gap {
+            height: 50px;
+        }
+
+        @keyframes titleIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+
+<body>
+<!-- 动态浮动光点 -->
+<div class="float-light"></div>
+
+<h1>张三的歌</h1>
+<div class="singer">经典歌曲</div>
+
+<div class="lyric">
+    <div class="line">我要带你到处去飞翔</div>
+    <div class="line">走遍世界各地去观赏</div>
+    <div class="line">没有烦恼没有那悲伤</div>
+    <div class="line">自由自在身心多开朗</div>
+
+    <div class="gap"></div>
+
+    <div class="line hl">忘掉痛苦忘掉那地方</div>
+    <div class="line hl">我们一起启程去流浪</div>
+    <div class="line hl">虽然没有华厦美衣裳</div>
+    <div class="line hl">但是心里充满着希望</div>
+
+    <div class="gap"></div>
+
+    <div class="line">我们要飞到那遥远地方</div>
+    <div class="line">看一看这世界并非那么凄凉</div>
+    <div class="line">我们要飞到那遥远地方</div>
+    <div class="line">望一望这世界还是一片的光亮</div>
+
+    <div class="gap"></div>
+
+    <div class="line">我要带你到处去飞翔</div>
+    <div class="line">走遍世界各地去观赏</div>
+    <div class="line">没有烦恼没有那悲伤</div>
+    <div class="line">自由自在身心多开朗</div>
+
+    <div class="gap"></div>
+
+    <div class="line hl">忘掉痛苦忘掉那地方</div>
+    <div class="line hl">我们一起启程去流浪</div>
+    <div class="line hl">虽然没有华厦美衣裳</div>
+    <div class="line hl">但是心里充满着希望</div>
+
+    <div class="gap"></div>
+
+    <div class="line">我们要飞到那遥远地方</div>
+    <div class="line">看一看这世界并非那么凄凉</div>
+    <div class="line">我们要飞到那遥远地方</div>
+    <div class="line">望一望这世界还是一片的光亮</div>
+</div>
+
+<script>
+    const lines = document.querySelectorAll('.line');
+    function check() {
+        lines.forEach(l => {
+            let r = l.getBoundingClientRect();
+            if (r.top < window.innerHeight * 0.7) l.classList.add('on');
+        });
+    }
+    window.addEventListener('load', check);
+    window.addEventListener('scroll', check);
+</script>
+</body>
+</html>
